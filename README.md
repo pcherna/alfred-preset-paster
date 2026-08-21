@@ -1,10 +1,16 @@
 # TextPaster
 
-Alfred 5 workflow: press **⌃⇧V** to get a filterable list of text presets for the frontmost app, with global presets appended. Selecting one pastes it into the app and then restores your previous clipboard (full fidelity — rich text, images, etc.).
+**TextPaster** is an Alfred 5 workflow that lets you set up global or per-app text strings that you can easily select then paste into the frontmost app.
+
+To use, press **⌃⇧V** to see the list, then select one to paste it into the app. (Your previous clipboard content will be restored afterwards.)
+
+## Use of AI Coding Tools
+
+This project was built using Claude Code and the Claude Opus 5 model. I'm a real human, and I wrote this readme, but I needed this functionality and I suck at Alfred workflows.
 
 ## Usage
 
-- **⌃⇧V** (or keyword **`tp`**) — list presets for the frontmost app (app-specific first, then global). Type to filter, ↵ to paste.
+- **⌃⇧V** (or Alfred keyword **`tp`**) — list the presets for the frontmost app (app-specific first, then global). Type to filter, ↵ to paste.
 - **`tpadd`** — with the target app frontmost, scaffolds a config block with its bundle ID and name, then opens the config.
 - **`tpconfig`** — opens the config file.
 
@@ -23,7 +29,8 @@ com.apple.Safari:
         Thanks for reaching out.
 
 global:                   # offered in every app, after app-specific items
-  - text: peter@nightblade.net
+  - title: Global example
+    text: This is available in every app
 ```
 
 `method: keystrokes` types the text via simulated key presses instead of pasting (clipboard untouched) — for apps that block or mangle ⌘V. It applies to global presets too while that app is frontmost. Caveats: each newline is sent as a real Return keypress (chat apps may submit per line), and characters not reachable on your keyboard layout may not type correctly.
