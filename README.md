@@ -2,11 +2,11 @@
 
 **Preset Paster** is an Alfred 5 workflow that lets you set up per-app and global text strings that you can easily select then paste into the frontmost app.
 
-To use **Preset Paster**, press the hotkey you've assigned to see the list, then select the desired entry to paste it into the app. (Your previous clipboard content will be restored afterwards.)
+To use **Preset Paster**, press the hotkey you've assigned. Alfred will show the list of presets, then you can select the desired entry to paste it into the app. (Your previous clipboard content will be restored afterwards.)
 
 ## Use of AI Coding Tools
 
-This project was built using Claude Code and the Claude Opus 5 model. I'm a real human, and I wrote most of this readme, but I needed this functionality and I suck at Alfred workflows.
+This project was built using Claude Code and the Claude Opus 5 model. I'm a real human with decades of software development experience, and I wrote most of this readme, but I wanted this functionality and I suck at Alfred workflows.
 
 ## Usage
 
