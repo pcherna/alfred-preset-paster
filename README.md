@@ -6,7 +6,7 @@ To use, press **⌃⇧V** to see the list, then select one to paste it into the 
 
 ## Use of AI Coding Tools
 
-This project was built using Claude Code and the Claude Opus 5 model. I'm a real human, and I wrote this readme, but I needed this functionality and I suck at Alfred workflows.
+This project was built using Claude Code and the Claude Opus 5 model. I'm a real human, and I wrote most of this readme, but I needed this functionality and I suck at Alfred workflows.
 
 ## Usage
 
