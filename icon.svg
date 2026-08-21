@@ -2,19 +2,19 @@
 <defs><linearGradient id="bg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="512">
 <stop offset="0" stop-color="#6D28D9"/><stop offset="1" stop-color="#3B0F73"/></linearGradient></defs>
 <rect x="0" y="0" width="512" height="512" rx="115" fill="url(#bg)"/>
-<g stroke="#FFFFFF" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <rect x="88" y="136" width="244" height="260" rx="34"/>
+<g stroke="#FFFFFF" stroke-width="37.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="55.7" y="102.9" width="307.4" height="327.6" rx="42.8"/>
 </g>
-<rect x="160" y="104" width="100" height="62" rx="24" fill="#FFFFFF"/>
-<g stroke="#FFFFFF" stroke-width="28" stroke-linecap="round">
-  <path d="M136 220 H286"/><path d="M136 352 H256"/>
+<rect x="146.4" y="62.6" width="126" height="78.1" rx="30.2" fill="#FFFFFF"/>
+<g stroke="#FFFFFF" stroke-width="35.3" stroke-linecap="round">
+  <path d="M116.1 208.8 H305.1"/><path d="M116.1 375.1 H267.3"/>
 </g>
 <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <g stroke="url(#bg)" stroke-width="54">
-    <path d="M136 286 H408"/><path d="M358 240 L412 286 L358 332"/>
+  <g stroke="url(#bg)" stroke-width="68">
+    <path d="M116.1 291.9 H458.9"/><path d="M395.9 234.0 L463.9 291.9 L395.9 349.9"/>
   </g>
-  <g stroke="#FBBF24" stroke-width="30">
-    <path d="M136 286 H402"/><path d="M358 244 L406 286 L358 328"/>
+  <g stroke="#FBBF24" stroke-width="37.8">
+    <path d="M116.1 291.9 H451.3"/><path d="M395.9 239.0 L456.3 291.9 L395.9 344.8"/>
   </g>
 </g>
 </svg>
