@@ -1,0 +1,38 @@
+# TextPaster presets
+# ------------------------------------------------------------------
+# Top-level keys are app bundle IDs. With the target app frontmost,
+# use the Alfred keyword `tpadd` to scaffold an entry automatically,
+# or `tpconfig` to open this file.
+#
+# Each app entry:
+#   name:    display name shown in Alfred subtitles
+#   method:  optional; "paste" (default) or "keystrokes".
+#            "keystrokes" types the text via simulated key presses
+#            instead of pasting — useful for apps that block or
+#            mangle Cmd-V. Applies to global presets too while that
+#            app is frontmost. Note: each newline is sent as a real
+#            Return keypress, and characters not reachable on your
+#            keyboard layout may not type correctly.
+#   presets: list of presets, in the order Alfred shows them
+#     - text:  required; the text to paste. Use | for multi-line,
+#              or |- to omit the trailing newline.
+#       title: optional; defaults to the first line of text
+#
+# The special `global` key is a list of presets offered in EVERY
+# app, after the app-specific ones.
+#
+# Example:
+#
+# com.apple.Safari:
+#   name: Safari
+#   presets:
+#     - title: Shrug
+#       text: "¯\\_(ツ)_/¯"
+#     - text: |
+#         Multi-line example
+#         second line
+#
+# global:
+#   - text: peter@nightblade.net
+
+global: []

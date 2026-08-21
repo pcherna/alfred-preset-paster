@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>net.nightblade.textpaster</string>
+	<key>connections</key>
+	<dict>
+		<key>41CA4F4B-BFE0-4E03-AC5B-CEF95F9E4A29</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4A0A4A45-FB65-4918-97AC-EE0C2FBB3074</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7091D728-901A-4BF9-B1B9-2593CF822BF6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D21EABF3-B9AC-4CC3-9DE5-9DBA715AE683</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>CF7F45AA-C503-4799-9B24-CDCAAE1D7978</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>CF49E625-F5C1-472E-A5F7-6B5BC0F3C437</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E3625D13-1245-4247-AA18-E29BE6BE51CF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>41CA4F4B-BFE0-4E03-AC5B-CEF95F9E4A29</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Peter</string>
+	<key>description</key>
+	<string>Hotkey shows per-app text presets to paste; global presets appended.</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>TextPaster</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>9</integer>
+				<key>hotmod</key>
+				<integer>393216</integer>
+				<key>hotstring</key>
+				<string>V</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>E3625D13-1245-4247-AA18-E29BE6BE51CF</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>tp</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Detecting active app…</string>
+				<key>script</key>
+				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript textpaster_filter.js</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Type to filter · ↵ to paste</string>
+				<key>title</key>
+				<string>Paste Preset</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>41CA4F4B-BFE0-4E03-AC5B-CEF95F9E4A29</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript textpaster_paste.js "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>4A0A4A45-FB65-4918-97AC-EE0C2FBB3074</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>tpconfig</string>
+				<key>subtext</key>
+				<string>Open the TextPaster config file</string>
+				<key>text</key>
+				<string>TextPaster: Open Config</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>CF7F45AA-C503-4799-9B24-CDCAAE1D7978</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>tpadd</string>
+				<key>subtext</key>
+				<string>Scaffold the frontmost app into the config, then open it</string>
+				<key>text</key>
+				<string>TextPaster: Add Frontmost App</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>7091D728-901A-4BF9-B1B9-2593CF822BF6</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript textpaster_tool.js open</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>CF49E625-F5C1-472E-A5F7-6B5BC0F3C437</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript textpaster_tool.js add</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D21EABF3-B9AC-4CC3-9DE5-9DBA715AE683</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># TextPaster
+
+Press ⌃⌘V (or use the keyword `tp`) to list text presets for the frontmost app, with global presets appended. Select one to paste it; your previous clipboard is restored afterwards.
+
+Keywords:
+- `tp` — same as the hotkey: list presets for the frontmost app
+- `tpconfig` — open the YAML config file
+- `tpadd` — scaffold the frontmost app into the config (adds its bundle ID and name), then open the file
+
+Config lives at `~/Library/Application Support/Alfred/Workflow Data/net.nightblade.textpaster/config.yaml` and is created on first use. Schema is documented in the file's header comments.
+
+Per-app option `method: keystrokes` types the text via simulated key presses instead of pasting (clipboard untouched) — for apps that block or mangle ⌘V. Newlines are sent as real Return keypresses; characters not reachable on your keyboard layout may not type correctly.
+
+Workflow variables (Alfred's [x] panel):
+- `textpaster_paste_delay` (seconds, default 0.3) — how long the pasted text stays on the clipboard before the original clipboard is restored; raise it if a slow (e.g. Electron) app pastes stale content.
+- `textpaster_editor` — app name to open the config with (e.g. `Visual Studio Code`); empty uses the system default handler for .yaml files.
+
+Notes:
+- Alfred needs Accessibility (it normally already has it); a one-time "control System Events" prompt may appear on first paste.
+- Bundles js-yaml 4.1.0 (MIT, https://github.com/nodeca/js-yaml).</string>
+	<key>uidata</key>
+	<dict>
+		<key>41CA4F4B-BFE0-4E03-AC5B-CEF95F9E4A29</key>
+		<dict>
+			<key>xpos</key>
+			<real>290</real>
+			<key>ypos</key>
+			<real>100</real>
+		</dict>
+		<key>4A0A4A45-FB65-4918-97AC-EE0C2FBB3074</key>
+		<dict>
+			<key>xpos</key>
+			<real>520</real>
+			<key>ypos</key>
+			<real>100</real>
+		</dict>
+		<key>7091D728-901A-4BF9-B1B9-2593CF822BF6</key>
+		<dict>
+			<key>xpos</key>
+			<real>80</real>
+			<key>ypos</key>
+			<real>420</real>
+		</dict>
+		<key>CF49E625-F5C1-472E-A5F7-6B5BC0F3C437</key>
+		<dict>
+			<key>xpos</key>
+			<real>290</real>
+			<key>ypos</key>
+			<real>300</real>
+		</dict>
+		<key>CF7F45AA-C503-4799-9B24-CDCAAE1D7978</key>
+		<dict>
+			<key>xpos</key>
+			<real>80</real>
+			<key>ypos</key>
+			<real>300</real>
+		</dict>
+		<key>D21EABF3-B9AC-4CC3-9DE5-9DBA715AE683</key>
+		<dict>
+			<key>xpos</key>
+			<real>290</real>
+			<key>ypos</key>
+			<real>420</real>
+		</dict>
+		<key>E3625D13-1245-4247-AA18-E29BE6BE51CF</key>
+		<dict>
+			<key>xpos</key>
+			<real>80</real>
+			<key>ypos</key>
+			<real>100</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>variables</key>
+	<dict>
+		<key>textpaster_editor</key>
+		<string></string>
+		<key>textpaster_paste_delay</key>
+		<string>0.3</string>
+	</dict>
+	<key>version</key>
+	<string>1.0</string>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
