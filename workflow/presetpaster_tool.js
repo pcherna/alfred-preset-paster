@@ -11,16 +11,16 @@ ObjC.import("Foundation");
 
 eval(
   $.NSString.stringWithContentsOfFileEncodingError(
-    "textpaster_common.js", $.NSUTF8StringEncoding, null
+    "presetpaster_common.js", $.NSUTF8StringEncoding, null
   ).js
 );
 
 function openConfig(configPath) {
   const app = Application.currentApplication();
   app.includeStandardAdditions = true;
-  // textpaster_editor (workflow variable): app name to open the config
+  // presetpaster_editor (workflow variable): app name to open the config
   // with; empty means the system default handler for .yaml files.
-  const editor = tpEnv("textpaster_editor");
+  const editor = tpEnv("presetpaster_editor");
   const cmd = editor
     ? "open -a " + quotedForm(editor) + " " + quotedForm(configPath)
     : "open " + quotedForm(configPath);

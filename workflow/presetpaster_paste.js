@@ -72,7 +72,7 @@ function run(argv) {
     return;
   }
 
-  const restoreDelay = parseFloat(env("textpaster_paste_delay")) || 0.3;
+  const restoreDelay = parseFloat(env("presetpaster_paste_delay")) || 0.3;
   const pb = $.NSPasteboard.generalPasteboard;
   const saved = saveClipboard(pb);
 

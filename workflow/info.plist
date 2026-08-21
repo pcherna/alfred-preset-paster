@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>net.nightblade.textpaster</string>
+	<string>net.nightblade.presetpaster</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -68,7 +68,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>TextPaster</string>
+	<string>Preset Paster</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -118,7 +118,7 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>keyword</key>
-				<string>tp</string>
+				<string>pp</string>
 				<key>queuedelaycustom</key>
 				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -130,7 +130,7 @@
 				<key>runningsubtext</key>
 				<string>Detecting active app…</string>
 				<key>script</key>
-				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript textpaster_filter.js</string>
+				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript presetpaster_filter.js</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -159,7 +159,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript textpaster_paste.js "$1"</string>
+				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript presetpaster_paste.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -180,11 +180,11 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>tpconfig</string>
+				<string>ppconfig</string>
 				<key>subtext</key>
-				<string>Open the TextPaster config file</string>
+				<string>Open the Preset Paster config file</string>
 				<key>text</key>
-				<string>TextPaster: Open Config</string>
+				<string>Preset Paster: Open Config</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -201,11 +201,11 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>tpadd</string>
+				<string>ppadd</string>
 				<key>subtext</key>
 				<string>Scaffold the frontmost app into the config, then open it</string>
 				<key>text</key>
-				<string>TextPaster: Add Frontmost App</string>
+				<string>Preset Paster: Add Frontmost App</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -224,7 +224,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript textpaster_tool.js open</string>
+				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript presetpaster_tool.js open</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -247,7 +247,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript textpaster_tool.js add</string>
+				<string>cd "$alfred_workflow_dir" &amp;&amp; /usr/bin/osascript -l JavaScript presetpaster_tool.js add</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -264,31 +264,31 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string># TextPaster
+	<string># Preset Paster
 
 Lists text presets for the frontmost app, with global presets appended. Select one to paste it; your previous clipboard is restored afterwards.
 
-Alfred clears hotkeys when it imports a workflow, so set your own first: double-click the Hotkey object above and press your combination. ⌃⇧V is the suggested default. The `tp` keyword works either way.
+Alfred clears hotkeys when it imports a workflow, so set your own first: double-click the Hotkey object above and press your combination. ⌃⇧V is the suggested default. The `pp` keyword works either way.
 
 Avoid a hotkey containing ⌘ if you use a remote-desktop client such as ScreenConnect — the Command key reaches the remote machine as the Windows key and opens the Start menu.
 
 Keywords:
-- `tp` — same as the hotkey: list presets for the frontmost app
-- `tpconfig` — open the YAML config file
-- `tpadd` — scaffold the frontmost app into the config (adds its bundle ID and name), then open the file
+- `pp` — same as the hotkey: list presets for the frontmost app
+- `ppconfig` — open the YAML config file
+- `ppadd` — scaffold the frontmost app into the config (adds its bundle ID and name), then open the file
 
-Config lives at `~/Library/Application Support/Alfred/Workflow Data/net.nightblade.textpaster/config.yaml` and is created on first use. Schema is documented in the file's header comments.
+Config lives at `~/Library/Application Support/Alfred/Workflow Data/net.nightblade.presetpaster/config.yaml` and is created on first use. Schema is documented in the file's header comments.
 
 Per-app option `method: keystrokes` types the text via simulated key presses instead of pasting (clipboard untouched) — for apps that block or mangle ⌘V. Newlines are sent as real Return keypresses; characters not reachable on your keyboard layout may not type correctly.
 
 Workflow variables (Alfred's [x] panel):
-- `textpaster_paste_delay` (seconds, default 0.3) — how long the pasted text stays on the clipboard before the original clipboard is restored; raise it if a slow (e.g. Electron) app pastes stale content.
-- `textpaster_editor` — app name to open the config with (e.g. `Visual Studio Code`); empty uses the system default handler for .yaml files.
+- `presetpaster_paste_delay` (seconds, default 0.3) — how long the pasted text stays on the clipboard before the original clipboard is restored; raise it if a slow (e.g. Electron) app pastes stale content.
+- `presetpaster_editor` — app name to open the config with (e.g. `Visual Studio Code`); empty uses the system default handler for .yaml files.
 
 Notes:
 - Alfred needs Accessibility (it normally already has it); a one-time "control System Events" prompt may appear on first paste.
 - Bundles js-yaml 4.1.0 (MIT, https://github.com/nodeca/js-yaml); see js-yaml.LICENSE.
-- TextPaster itself is MIT licensed.</string>
+- Preset Paster itself is MIT licensed.</string>
 	<key>uidata</key>
 	<dict>
 		<key>41CA4F4B-BFE0-4E03-AC5B-CEF95F9E4A29</key>
@@ -345,14 +345,14 @@ Notes:
 	<array/>
 	<key>variables</key>
 	<dict>
-		<key>textpaster_editor</key>
+		<key>presetpaster_editor</key>
 		<string></string>
-		<key>textpaster_paste_delay</key>
+		<key>presetpaster_paste_delay</key>
 		<string>0.3</string>
 	</dict>
 	<key>version</key>
 	<string>1.0</string>
 	<key>webaddress</key>
-	<string>https://github.com/pcherna/AlfredTextPaster</string>
+	<string>https://github.com/pcherna/alfred-preset-paster</string>
 </dict>
 </plist>

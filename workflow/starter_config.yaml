@@ -1,8 +1,8 @@
-# TextPaster presets
+# Preset Paster presets
 # ------------------------------------------------------------------
 # Top-level keys are app bundle IDs. With the target app frontmost,
-# use the Alfred keyword `tpadd` to scaffold an entry automatically,
-# or `tpconfig` to open this file.
+# use the Alfred keyword `ppadd` to scaffold an entry automatically,
+# or `ppconfig` to open this file.
 #
 # Each app entry:
 #   name:    display name shown in Alfred subtitles

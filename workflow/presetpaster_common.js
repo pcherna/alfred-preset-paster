@@ -1,9 +1,9 @@
-// Shared helpers for TextPaster. Loaded via top-level eval from the entry
+// Shared helpers for Preset Paster. Loaded via top-level eval from the entry
 // scripts, which run with cwd = the workflow directory (see info.plist).
 
 ObjC.import("Foundation");
 
-const BUNDLE_ID = "net.nightblade.textpaster";
+const BUNDLE_ID = "net.nightblade.presetpaster";
 
 function tpEnv(name) {
   const v = $.NSProcessInfo.processInfo.environment.objectForKey(name);

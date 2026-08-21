@@ -11,7 +11,7 @@ eval(
 );
 eval(
   $.NSString.stringWithContentsOfFileEncodingError(
-    "textpaster_common.js", $.NSUTF8StringEncoding, null
+    "presetpaster_common.js", $.NSUTF8StringEncoding, null
   ).js
 );
 
@@ -51,14 +51,14 @@ function run() {
     config = jsyaml.load(tpReadFile(configPath) || "");
   } catch (e) {
     return errorOutput(
-      "TextPaster: config error",
+      "Preset Paster: config error",
       String(e.message || e).split("\n")[0]
     );
   }
   if (config === null || config === undefined) config = {};
   if (typeof config !== "object" || Array.isArray(config)) {
     return errorOutput(
-      "TextPaster: config error",
+      "Preset Paster: config error",
       "Top level must be a mapping of bundle IDs (plus optional `global`)"
     );
   }
@@ -79,7 +79,7 @@ function run() {
   if (items.length === 0) {
     return errorOutput(
       "No presets for " + appName,
-      "Use tpadd to scaffold it, or tpconfig to edit the config"
+      "Use ppadd to scaffold it, or ppconfig to edit the config"
     );
   }
 

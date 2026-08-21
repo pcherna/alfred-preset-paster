@@ -1,5 +1,5 @@
 #!/bin/bash
-# Installs TextPaster into Alfred's workflows directory. Idempotent.
+# Installs Preset Paster into Alfred's workflows directory. Idempotent.
 #
 # Alfred keeps its preferences bundle in a sync folder when one is configured
 # (Dropbox, iCloud Drive, ...) and in Application Support otherwise. This
@@ -7,7 +7,7 @@
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
-BUNDLE_ID="net.nightblade.textpaster"
+BUNDLE_ID="net.nightblade.presetpaster"
 DEFAULT_DIR="$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows"
 
 if [ -z "${WORKFLOWS_DIR:-}" ]; then
@@ -54,6 +54,6 @@ with open(path, "wb") as f:
 ' "$target/info.plist" "$saved_vars"
   echo "Preserved existing workflow variables: $saved_vars"
 fi
-echo "Installed TextPaster ($BUNDLE_ID) into $WORKFLOWS_DIR"
+echo "Installed Preset Paster ($BUNDLE_ID) into $WORKFLOWS_DIR"
 echo "Alfred picks up changes automatically; if it looks stale, open"
 echo "Alfred Preferences -> Workflows to force a rescan."
