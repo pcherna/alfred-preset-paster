@@ -60,3 +60,9 @@ alfred_workflow_data=/tmp/tpdata osascript -l JavaScript textpaster_filter.js
 ## Notes
 
 - Alfred needs Accessibility (it normally already has it); a one-time "Alfred wants to control System Events" prompt may appear on first paste.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
+
+Bundles [js-yaml 4.1.0](https://github.com/nodeca/js-yaml) (MIT, Copyright (C) 2011-2015 by Vitaly Puzrin); its license is at [workflow/js-yaml.LICENSE](workflow/js-yaml.LICENSE).
