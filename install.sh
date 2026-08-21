@@ -1,30 +1,32 @@
 #!/bin/bash
-# Installs TextPaster into Alfred's (Dropbox-synced) workflows directory and
-# removes the old "Preset Paster" workflow it replaces. Idempotent.
+# Installs TextPaster into Alfred's workflows directory. Idempotent.
+#
+# Alfred keeps its preferences bundle in a sync folder when one is configured
+# (Dropbox, iCloud Drive, ...) and in Application Support otherwise. This
+# script follows that setting. Override it with WORKFLOWS_DIR=...
 set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
-WORKFLOWS_DIR="${WORKFLOWS_DIR:-$HOME/Library/CloudStorage/Dropbox/Alfred/Alfred.alfredpreferences/workflows}"
-NEW_BUNDLE_ID="net.nightblade.textpaster"
-OLD_BUNDLE_ID="com.peterkrenn.presetpaster"
+BUNDLE_ID="net.nightblade.textpaster"
+DEFAULT_DIR="$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences/workflows"
+
+if [ -z "${WORKFLOWS_DIR:-}" ]; then
+  syncfolder="$(defaults read com.runningwithcrayons.Alfred-Preferences syncfolder 2>/dev/null || true)"
+  if [ -n "$syncfolder" ]; then
+    synced="${syncfolder/#\~/$HOME}/Alfred.alfredpreferences/workflows"
+    [ -d "$synced" ] && WORKFLOWS_DIR="$synced"
+  fi
+  WORKFLOWS_DIR="${WORKFLOWS_DIR:-$DEFAULT_DIR}"
+fi
 
 [ -d "$WORKFLOWS_DIR" ] || { echo "Workflows dir not found: $WORKFLOWS_DIR" >&2; exit 1; }
 
 target=""
 for plist in "$WORKFLOWS_DIR"/user.workflow.*/info.plist; do
   [ -f "$plist" ] || continue
-  folder="$(dirname "$plist")"
-  bundle_id="$(/usr/libexec/PlistBuddy -c 'Print :bundleid' "$plist" 2>/dev/null || true)"
-  case "$bundle_id" in
-    "$OLD_BUNDLE_ID")
-      trashed="$HOME/.Trash/$(basename "$folder").presetpaster"
-      mv "$folder" "$trashed"
-      echo "Removed old Preset Paster -> $trashed"
-      ;;
-    "$NEW_BUNDLE_ID")
-      target="$folder"
-      ;;
-  esac
+  if [ "$(/usr/libexec/PlistBuddy -c 'Print :bundleid' "$plist" 2>/dev/null || true)" = "$BUNDLE_ID" ]; then
+    target="$(dirname "$plist")"
+  fi
 done
 
 saved_vars=""
@@ -52,5 +54,6 @@ with open(path, "wb") as f:
 ' "$target/info.plist" "$saved_vars"
   echo "Preserved existing workflow variables: $saved_vars"
 fi
-echo "Installed TextPaster ($NEW_BUNDLE_ID). Alfred picks up changes automatically;"
-echo "if it looks stale, open Alfred Preferences -> Workflows to force a rescan."
+echo "Installed TextPaster ($BUNDLE_ID) into $WORKFLOWS_DIR"
+echo "Alfred picks up changes automatically; if it looks stale, open"
+echo "Alfred Preferences -> Workflows to force a rescan."

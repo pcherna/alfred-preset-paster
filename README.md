@@ -42,11 +42,23 @@ Workflow variables (Alfred Preferences → the workflow's `[x]` panel; `install.
 
 ## Install
 
+Download `TextPaster.alfredworkflow` from the [latest release](https://github.com/pcherna/AlfredTextPaster/releases) and double-click it.
+
+Alfred clears hotkeys when it imports a workflow, so open the workflow and set your own. ⌃⇧V is the suggested default. Avoid anything containing ⌘ if you use a remote-desktop client — Command reaches the remote machine as the Windows key and opens the Start menu.
+
+To install from a clone instead, which preserves the hotkey stored in `workflow/info.plist`:
+
 ```sh
 bash install.sh
 ```
 
-Copies `workflow/` into Alfred's workflows directory (Dropbox-synced; override with `WORKFLOWS_DIR=...`) and moves the old "Preset Paster" workflow it replaces to the Trash. Direct folder install preserves the ⌃⇧V hotkey binding (Alfred only strips hotkeys when importing `.alfredworkflow` bundles).
+That copies `workflow/` into Alfred's workflows directory, following Alfred's own sync-folder setting (Dropbox, iCloud Drive, ...) and falling back to `~/Library/Application Support/Alfred/`. Override with `WORKFLOWS_DIR=...`. Reinstalling preserves your workflow variables.
+
+To build the distributable bundle:
+
+```sh
+bash build.sh          # writes dist/TextPaster.alfredworkflow
+```
 
 ## Development
 
