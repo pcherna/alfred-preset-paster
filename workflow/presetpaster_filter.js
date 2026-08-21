@@ -79,7 +79,7 @@ function run() {
   if (items.length === 0) {
     return errorOutput(
       "No presets for " + appName,
-      "Use ppadd to scaffold it, or ppconfig to edit the config"
+      "Use pspadd to scaffold it, or pspconfig to edit the config"
     );
   }
 

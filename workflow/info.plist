@@ -118,7 +118,7 @@
 				<key>escaping</key>
 				<integer>68</integer>
 				<key>keyword</key>
-				<string>pp</string>
+				<string>psp</string>
 				<key>queuedelaycustom</key>
 				<integer>1</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -180,7 +180,7 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>ppconfig</string>
+				<string>pspconfig</string>
 				<key>subtext</key>
 				<string>Open the Preset Paster config file</string>
 				<key>text</key>
@@ -201,7 +201,7 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>ppadd</string>
+				<string>pspadd</string>
 				<key>subtext</key>
 				<string>Scaffold the frontmost app into the config, then open it</string>
 				<key>text</key>
@@ -268,14 +268,14 @@
 
 Lists text presets for the frontmost app, with global presets appended. Select one to paste it; your previous clipboard is restored afterwards.
 
-Alfred clears hotkeys when it imports a workflow, so set your own first: double-click the Hotkey object above and press your combination. ⌃⇧V is the suggested default. The `pp` keyword works either way.
+Alfred clears hotkeys when it imports a workflow, so set your own first: double-click the Hotkey object above and press your combination. ⌃⇧V is the suggested default. The `psp` keyword works either way.
 
 Avoid a hotkey containing ⌘ if you use a remote-desktop client such as ScreenConnect — the Command key reaches the remote machine as the Windows key and opens the Start menu.
 
 Keywords:
-- `pp` — same as the hotkey: list presets for the frontmost app
-- `ppconfig` — open the YAML config file
-- `ppadd` — scaffold the frontmost app into the config (adds its bundle ID and name), then open the file
+- `psp` — same as the hotkey: list presets for the frontmost app
+- `pspconfig` — open the YAML config file
+- `pspadd` — scaffold the frontmost app into the config (adds its bundle ID and name), then open the file
 
 Config lives at `~/Library/Application Support/Alfred/Workflow Data/net.nightblade.presetpaster/config.yaml` and is created on first use. Schema is documented in the file's header comments.
 

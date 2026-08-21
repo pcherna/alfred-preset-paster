@@ -10,9 +10,9 @@ This project was built using Claude Code and the Claude Opus 5 model. I'm a real
 
 ## Usage
 
-- Alfred keyword **`pp`**, or your assigned shortcut (suggested: **⌃⇧V**)— list the presets for the frontmost app (app-specific first, then global). Type to filter, ↵ to paste.
-- **`ppadd`** — Add a preset to your config, for the current frontmost app. Scaffolds a config block with its bundle ID and name, then opens the config.
-- **`ppconfig`** — Opens the config file.
+- Alfred keyword **`psp`**, or your assigned shortcut (suggested: **⌃⇧V**)— list the presets for the frontmost app (app-specific first, then global). Type to filter, ↵ to paste.
+- **`pspadd`** — Add a preset to your config, for the current frontmost app. Scaffolds a config block with its bundle ID and name, then opens the config.
+- **`pspconfig`** — Opens the config file.
 
 ## Config File Location and Format
 
@@ -38,7 +38,7 @@ Normally, the preset is pasted into the frontmost app. When necessary, you can s
 Workflow variables (Alfred Preferences → the workflow's `[x]` panel; `install.sh` preserves your values across reinstalls):
 
 - `presetpaster_paste_delay` (default `0.3` seconds) — how long the preset stays on the clipboard before the original clipboard is restored; raise it if a slow (e.g. Electron) app pastes stale content.
-- `presetpaster_editor` — app name that `ppconfig`/`ppadd` open the config with, e.g. `Visual Studio Code`. Empty uses the system-wide default handler for `.yaml` files (change that via Finder → Get Info on a `.yaml` file → Open With → Change All).
+- `presetpaster_editor` — app name that `pspconfig`/`pspadd` open the config with, e.g. `Visual Studio Code`. Empty uses the system-wide default handler for `.yaml` files (change that via Finder → Get Info on a `.yaml` file → Open With → Change All).
 
 ## Install
 
