@@ -1,4 +1,4 @@
-# TextPaster
+# Alfred TextPaster
 
 **TextPaster** is an Alfred 5 workflow that lets you set up global or per-app text strings that you can easily select then paste into the frontmost app.
 
