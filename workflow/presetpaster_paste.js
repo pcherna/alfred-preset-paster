@@ -6,6 +6,9 @@
 //
 // method=keystrokes: types the text via System Events key presses;
 // clipboard is untouched. Newlines are sent as real Return keypresses.
+//
+// source=clipboard: types the current clipboard text instead of argv[0]
+// (the "Paste using keystrokes" item, offered only for keystroke apps).
 
 ObjC.import("Foundation");
 ObjC.import("AppKit");
@@ -48,7 +51,7 @@ function restoreClipboard(pb, saved) {
 
 function typeText(se, text) {
   const CHUNK = 50;
-  text.split("\n").forEach((line, i) => {
+  text.split(/\r\n|\r|\n/).forEach((line, i) => {
     if (i > 0) {
       se.keyCode(36);
       delay(0.02);
@@ -61,7 +64,13 @@ function typeText(se, text) {
 }
 
 function run(argv) {
-  const text = argv[0];
+  let text = argv[0];
+  if (env("source") === "clipboard") {
+    const s = $.NSPasteboard.generalPasteboard.stringForType(
+      $.NSPasteboardTypeString
+    );
+    text = typeof s.js === "string" ? s.js : "";
+  }
   if (typeof text !== "string" || text.length === 0) return;
 
   const se = Application("System Events");

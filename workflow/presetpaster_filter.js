@@ -3,6 +3,7 @@
 // Alfred does the fuzzy filtering (alfredfiltersresults = true).
 
 ObjC.import("Foundation");
+ObjC.import("AppKit");
 
 eval(
   $.NSString.stringWithContentsOfFileEncodingError(
@@ -35,6 +36,33 @@ function presetItems(list, subtitle) {
       arg: e.text,
       text: { copy: e.text, largetype: e.text },
     }));
+}
+
+// Offered first for keystroke apps: types whatever text is on the
+// clipboard, for apps where Cmd-V doesn't work. Password managers mark
+// secrets with org.nspasteboard.ConcealedType (nspasteboard.org); those
+// are never previewed in the subtitle.
+function clipboardItem() {
+  const pb = $.NSPasteboard.generalPasteboard;
+  const s = pb.stringForType($.NSPasteboardTypeString);
+  const text = typeof s.js === "string" ? s.js : "";
+  if (text.length === 0) {
+    return {
+      title: "Paste using keystrokes",
+      subtitle: "Clipboard has no text",
+      valid: false,
+    };
+  }
+  const concealed = pb.types.containsObject("org.nspasteboard.ConcealedType");
+  const first = text.split(/\r?\n/)[0].trim();
+  return {
+    title: "Paste using keystrokes",
+    subtitle: concealed
+      ? "Clipboard: (concealed)"
+      : "Clipboard: " + (first.length > 60 ? first.slice(0, 57) + "…" : first),
+    arg: "",
+    variables: { method: "keystrokes", source: "clipboard" },
+  };
 }
 
 function errorOutput(title, subtitle) {
@@ -72,7 +100,9 @@ function run() {
       : null;
   const appName = (appCfg && appCfg.name) || app.name || "this app";
 
-  const items = presetItems(appCfg && appCfg.presets, appName).concat(
+  const method = appCfg && appCfg.method === "keystrokes" ? "keystrokes" : "paste";
+  const items = (method === "keystrokes" ? [clipboardItem()] : []).concat(
+    presetItems(appCfg && appCfg.presets, appName),
     presetItems(config.global, "Global")
   );
 
@@ -83,6 +113,5 @@ function run() {
     );
   }
 
-  const method = appCfg && appCfg.method === "keystrokes" ? "keystrokes" : "paste";
   return JSON.stringify({ variables: { method: method }, items: items });
 }

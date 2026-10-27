@@ -6,7 +6,7 @@ To use **Preset Paster**, press the hotkey you've assigned. Alfred will show the
 
 ## Use of AI Coding Tools
 
-This project was built using Claude Code and the Claude Opus 5 model. I'm a real human with decades of software development experience, and I wrote most of this readme, but I wanted this functionality and I suck at Alfred workflows.
+This project was built using Claude Code and Claude Opus 5 and 5.5. I'm a real human with decades of software development experience, and I wrote most of this readme, but I wanted this functionality and I suck at Alfred workflows.
 
 ## Usage
 
@@ -34,6 +34,8 @@ global:                   # offered in every app, after app-specific items
 ```
 
 Normally, the preset is pasted into the frontmost app. When necessary, you can specify `method: keystrokes` that tells **Preset Paster** to type the text via simulated key presses instead — this is useful for apps that block or mangle ⌘V, such as some remote access applications. The method is based on which app is frontmost, even for global presets. Note that each newline is sent as a real Return keypress (chat apps may submit per line), and characters not reachable on your keyboard layout may not type correctly.
+
+For apps that use `method: keystrokes`, the list also starts with a **Paste using keystrokes** item. It types the current clipboard text into the app, so you can "paste" anything, not only presets.
 
 Workflow variables (Alfred Preferences → the workflow's `[x]` panel; `install.sh` preserves your values across reinstalls):
 
